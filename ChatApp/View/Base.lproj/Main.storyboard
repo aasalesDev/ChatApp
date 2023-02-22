@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-di-8KO">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-di-8KO" customClass="GradientView" customModule="ChatApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="393" height="77"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIT-FQ-MRi">
@@ -54,7 +54,6 @@
                                         <buttonConfiguration key="configuration" style="plain" image="smackBurger"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.23921568627450979" green="0.30980392156862746" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="hwx-li-QUi" secondAttribute="bottom" constant="12" id="HFT-p5-A3q"/>
                                     <constraint firstItem="nIT-FQ-MRi" firstAttribute="centerX" secondItem="3XB-di-8KO" secondAttribute="centerX" id="MwP-X5-93t"/>
@@ -62,6 +61,14 @@
                                     <constraint firstItem="hwx-li-QUi" firstAttribute="leading" secondItem="3XB-di-8KO" secondAttribute="leading" constant="12" id="fPP-fJ-SNR"/>
                                     <constraint firstItem="nIT-FQ-MRi" firstAttribute="centerY" secondItem="hwx-li-QUi" secondAttribute="centerY" id="k0s-vw-WXN"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" systemColor="systemIndigoColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" systemColor="systemBrownColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z5O-56-bas"/>
@@ -88,9 +95,74 @@
                     <view key="view" contentMode="scaleToFill" id="5k4-SF-GHl" customClass="GradientView" customModule="ChatApp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-e2-MTB">
+                                <rect key="frame" x="25" y="109" width="100" height="69"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqa-2D-qMe">
+                                        <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="27.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHANNELS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-5B-crk">
+                                        <rect key="frame" x="0.0" y="52.333333333333343" width="65.333333333333329" height="16.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Lyt-XQ-gsG"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-Al-M8t">
+                                <rect key="frame" x="263" y="147.33333333333334" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="SdI-Qc-qxf"/>
+                                    <constraint firstAttribute="width" constant="45" id="wJA-a0-NZL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="addChannelButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVj-hf-6EJ">
+                                <rect key="frame" x="110" y="738.33333333333337" width="65.666666666666686" height="34.333333333333371"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bm3-A2-xcY">
+                                <rect key="frame" x="25" y="718" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="Exe-np-Yre"/>
+                                    <constraint firstAttribute="height" constant="75" id="i4l-9k-a1n"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xkn-ge-kpT">
+                                <rect key="frame" x="0.0" y="207.33333333333334" width="393" height="500.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Toh-H0-XXp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Toh-H0-XXp" firstAttribute="bottom" secondItem="bm3-A2-xcY" secondAttribute="bottom" constant="25" id="0c1-0O-zxo"/>
+                            <constraint firstItem="bm3-A2-xcY" firstAttribute="top" secondItem="Xkn-ge-kpT" secondAttribute="bottom" constant="10" id="3Gl-HO-G9F"/>
+                            <constraint firstItem="bm3-A2-xcY" firstAttribute="leading" secondItem="Toh-H0-XXp" secondAttribute="leading" constant="25" id="6Ig-ju-NQp"/>
+                            <constraint firstItem="Toh-H0-XXp" firstAttribute="trailing" secondItem="7iZ-Al-M8t" secondAttribute="trailing" constant="85" id="CeK-e6-Nto"/>
+                            <constraint firstItem="tAZ-e2-MTB" firstAttribute="top" secondItem="Toh-H0-XXp" secondAttribute="top" constant="50" id="ESO-dL-cXa"/>
+                            <constraint firstItem="CVj-hf-6EJ" firstAttribute="centerY" secondItem="bm3-A2-xcY" secondAttribute="centerY" id="L7x-fD-Abj"/>
+                            <constraint firstItem="Toh-H0-XXp" firstAttribute="trailing" secondItem="Xkn-ge-kpT" secondAttribute="trailing" id="P6L-0A-EHd"/>
+                            <constraint firstItem="Xkn-ge-kpT" firstAttribute="leading" secondItem="Toh-H0-XXp" secondAttribute="leading" id="cHW-ez-Dqx"/>
+                            <constraint firstItem="7iZ-Al-M8t" firstAttribute="centerY" secondItem="CgG-5B-crk" secondAttribute="centerY" id="eg0-O7-wKT"/>
+                            <constraint firstItem="CVj-hf-6EJ" firstAttribute="leading" secondItem="bm3-A2-xcY" secondAttribute="trailing" constant="10" id="qrc-H8-26b"/>
+                            <constraint firstItem="Xkn-ge-kpT" firstAttribute="top" secondItem="7iZ-Al-M8t" secondAttribute="bottom" constant="15" id="s5Q-rB-og9"/>
+                            <constraint firstItem="tAZ-e2-MTB" firstAttribute="leading" secondItem="Toh-H0-XXp" secondAttribute="leading" constant="25" id="ypR-1d-nGV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="7iZ-Al-M8t" id="jxq-aR-Xxn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wC3-qx-gXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,9 +170,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addChannelButton" width="22" height="22"/>
+        <image name="menuProfileIcon" width="99" height="99"/>
         <image name="smackBurger" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

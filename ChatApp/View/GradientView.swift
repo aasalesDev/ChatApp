@@ -10,13 +10,13 @@ import UIKit
 @IBDesignable
 class GradientView: UIView {
     
-    @IBInspectable var topColor: UIColor = UIColor.systemBlue {
+    @IBInspectable var topColor: UIColor = UIColor.systemIndigo {
         didSet {
             self.setNeedsLayout()
         }
     }
     
-    @IBInspectable var bottomColor: UIColor = UIColor.systemYellow {
+    @IBInspectable var bottomColor: UIColor = UIColor.systemBrown {
         didSet {
             self.setNeedsLayout()
         }

@@ -9,6 +9,8 @@ import UIKit
 
 class ChannelVC: UIViewController {
 
+    @IBOutlet weak var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewRevealWidth()
