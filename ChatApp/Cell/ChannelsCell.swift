@@ -24,8 +24,8 @@ class ChannelsCell: UITableViewCell {
     }
 
     func configureCell() {
+        channelLabel.textColor = .white
         channelLabel.text = "#Channel"
-        backgroundColor = .systemIndigo
     }
     
 }
