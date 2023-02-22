@@ -117,7 +117,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-Al-M8t">
-                                <rect key="frame" x="263" y="147.33333333333334" width="45" height="45"/>
+                                <rect key="frame" x="283" y="147.33333333333334" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="SdI-Qc-qxf"/>
                                     <constraint firstAttribute="width" constant="45" id="wJA-a0-NZL"/>
@@ -149,7 +149,7 @@
                             <constraint firstItem="Toh-H0-XXp" firstAttribute="bottom" secondItem="bm3-A2-xcY" secondAttribute="bottom" constant="25" id="0c1-0O-zxo"/>
                             <constraint firstItem="bm3-A2-xcY" firstAttribute="top" secondItem="Xkn-ge-kpT" secondAttribute="bottom" constant="10" id="3Gl-HO-G9F"/>
                             <constraint firstItem="bm3-A2-xcY" firstAttribute="leading" secondItem="Toh-H0-XXp" secondAttribute="leading" constant="25" id="6Ig-ju-NQp"/>
-                            <constraint firstItem="Toh-H0-XXp" firstAttribute="trailing" secondItem="7iZ-Al-M8t" secondAttribute="trailing" constant="85" id="CeK-e6-Nto"/>
+                            <constraint firstItem="Toh-H0-XXp" firstAttribute="trailing" secondItem="7iZ-Al-M8t" secondAttribute="trailing" constant="65" id="CeK-e6-Nto"/>
                             <constraint firstItem="tAZ-e2-MTB" firstAttribute="top" secondItem="Toh-H0-XXp" secondAttribute="top" constant="50" id="ESO-dL-cXa"/>
                             <constraint firstItem="CVj-hf-6EJ" firstAttribute="centerY" secondItem="bm3-A2-xcY" secondAttribute="centerY" id="L7x-fD-Abj"/>
                             <constraint firstItem="Toh-H0-XXp" firstAttribute="trailing" secondItem="Xkn-ge-kpT" secondAttribute="trailing" id="P6L-0A-EHd"/>
@@ -162,6 +162,11 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="7iZ-Al-M8t" id="jxq-aR-Xxn"/>
+                        <outlet property="channelsLabel" destination="CgG-5B-crk" id="cxv-8P-phv"/>
+                        <outlet property="loginLabel" destination="CVj-hf-6EJ" id="8oJ-jy-sJM"/>
+                        <outlet property="profileImage" destination="bm3-A2-xcY" id="I8O-Dg-wf0"/>
+                        <outlet property="tableView" destination="Xkn-ge-kpT" id="far-Gt-Dqy"/>
+                        <outlet property="titleLabel" destination="nqa-2D-qMe" id="WnR-Pr-bYh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wC3-qx-gXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
