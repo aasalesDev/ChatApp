@@ -19,11 +19,10 @@ class ChannelsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureCell()
-        
     }
 
     func configureCell() {
+        backgroundColor = .systemIndigo
         channelLabel.textColor = .white
         channelLabel.text = "#Channel"
     }

@@ -23,6 +23,10 @@ class ChannelVC: UIViewController {
         configureTableView()
     }
     
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "toLogin", sender: nil)
+    }
+    
     private func configureViewRevealWidth() {
         self.revealViewController().rearViewRevealWidth = view.frame.size.width - 80
     }
@@ -36,21 +40,20 @@ class ChannelVC: UIViewController {
 
 extension ChannelVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsCell.identifier, for: indexPath) as? ChannelsCell {
-            cell.channelLabel.text = "#Channel..."
-            cell.channelLabel.textColor = .blue
+            cell.configureCell()
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 60
     }
     
 }

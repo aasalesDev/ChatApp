@@ -17,17 +17,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="824" height="151"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78c-qe-XhE">
-                        <rect key="frame" x="375.66666666666669" y="65" width="72.666666666666686" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-U9-mdg">
+                        <rect key="frame" x="0.0" y="0.0" width="824" height="151"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Channel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78c-qe-XhE">
+                                <rect key="frame" x="0.0" y="0.0" width="824" height="151"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" systemColor="linkColor"/>
                 <constraints>
-                    <constraint firstItem="78c-qe-XhE" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DVl-Hp-ClC"/>
-                    <constraint firstItem="78c-qe-XhE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zOS-5y-aG1"/>
+                    <constraint firstAttribute="trailing" secondItem="M4r-U9-mdg" secondAttribute="trailing" id="Un2-KW-tbd"/>
+                    <constraint firstItem="M4r-U9-mdg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WIk-K5-r86"/>
+                    <constraint firstAttribute="bottom" secondItem="M4r-U9-mdg" secondAttribute="bottom" id="Yub-Z2-s3P"/>
+                    <constraint firstItem="M4r-U9-mdg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qeu-hy-lRH"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="color" keyPath="topColor">
