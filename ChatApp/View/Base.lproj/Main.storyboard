@@ -228,6 +228,9 @@
                                 <rect key="frame" x="36" y="552" width="302.66666666666669" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Don't have an account? Sign up here"/>
+                                <connections>
+                                    <action selector="createAccountButtonPressed:" destination="Mzo-HY-bwt" eventType="touchUpInside" id="OL3-uB-28H"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="AXq-3f-ivj">
                                 <rect key="frame" x="25" y="309" width="343" height="54"/>
@@ -309,10 +312,29 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y28-lK-EaJ"/>
+                    <connections>
+                        <segue destination="xzZ-kB-smh" kind="show" identifier="ToCreateAccountVC" id="zf6-74-nS1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGv-69-a2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2090.8396946564885" y="-316.19718309859155"/>
+        </scene>
+        <!--Create AccountVC-->
+        <scene sceneID="pKa-DX-rsX">
+            <objects>
+                <viewController storyboardIdentifier="CreateAccountVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xzZ-kB-smh" customClass="CreateAccountVC" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k5r-zC-gr2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="u9L-xy-NXE"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DGZ-8V-LKZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adb-Z2-3m6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2816" y="-316"/>
         </scene>
     </scenes>
     <resources>
@@ -329,6 +351,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
