@@ -27,6 +27,10 @@ class ChannelVC: UIViewController {
         performSegue(withIdentifier: "toLogin", sender: nil)
     }
     
+    // This IBAction is not connected to anything. It is used to unwind from the last screen to here - First Responder to Exit
+    @IBAction func goBackChannelVC(_ sender: UIStoryboardSegue) {
+    }
+    
     private func configureViewRevealWidth() {
         self.revealViewController().rearViewRevealWidth = view.frame.size.width - 80
     }

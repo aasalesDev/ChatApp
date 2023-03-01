@@ -13,4 +13,11 @@ class CreateAccountVC: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    // This function dismiss two screens (similar to going to rootViewController) - Go from First Responder to Exit (unwind segue)
+    @IBAction func closeButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "GoToChannelVC", sender: nil)
+    }
+    
+    
 }
