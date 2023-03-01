@@ -45,9 +45,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwx-li-QUi">
-                                        <rect key="frame" x="12" y="47" width="24" height="18"/>
+                                        <rect key="frame" x="12" y="47" width="64" height="18"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="DZb-KX-Z9e"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="DZb-KX-Z9e"/>
                                             <constraint firstAttribute="height" constant="18" id="MoZ-fI-mdN"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -60,6 +60,7 @@
                                     <constraint firstAttribute="height" constant="77" id="evH-eg-Lki"/>
                                     <constraint firstItem="hwx-li-QUi" firstAttribute="leading" secondItem="3XB-di-8KO" secondAttribute="leading" constant="12" id="fPP-fJ-SNR"/>
                                     <constraint firstItem="nIT-FQ-MRi" firstAttribute="centerY" secondItem="hwx-li-QUi" secondAttribute="centerY" id="k0s-vw-WXN"/>
+                                    <constraint firstItem="nIT-FQ-MRi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hwx-li-QUi" secondAttribute="trailing" constant="8" symbolic="YES" id="zaa-bS-qNl"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="topColor">
