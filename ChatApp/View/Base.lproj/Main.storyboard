@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -355,6 +356,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="CREATE ACCOUNT"/>
+                                <connections>
+                                    <action selector="createAccountButtonPressed:" destination="xzZ-kB-smh" eventType="touchUpInside" id="C4w-cO-qCf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDI-nn-SP7">
                                 <rect key="frame" x="117.66666666666667" y="598" width="157.66666666666663" height="34.333333333333371"/>
@@ -362,6 +366,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Choose an Avatar"/>
                                 <connections>
                                     <action selector="createAccountButtonPressed:" destination="Mzo-HY-bwt" eventType="touchUpInside" id="RV6-i4-UBE"/>
+                                    <segue destination="YrT-m2-6Pj" kind="presentation" modalPresentationStyle="fullScreen" id="JYt-03-XkP"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OjF-r2-Auk">
@@ -440,8 +445,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="closeButton"/>
                                 <connections>
-                                    <action selector="closeButtonPressed:" destination="xzZ-kB-smh" eventType="touchUpInside" id="DMc-ws-1Se"/>
-                                    <action selector="closeButtonPressed:" destination="Mzo-HY-bwt" eventType="touchUpInside" id="IRK-bi-5Eo"/>
+                                    <action selector="dismissButtonPressed:" destination="xzZ-kB-smh" eventType="touchUpInside" id="yiO-uG-H18"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -469,6 +473,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="DGZ-8V-LKZ"/>
                     <connections>
+                        <outlet property="email" destination="Wfv-L2-3WW" id="WRY-Xv-zmA"/>
+                        <outlet property="password" destination="JG6-Pm-ZRS" id="WpW-K8-Lte"/>
+                        <outlet property="userName" destination="7jh-8j-F5D" id="1Sk-7u-nFk"/>
                         <segue destination="OdS-Yl-RFk" kind="unwind" identifier="GoToChannelVC" unwindAction="goBackChannelVC:" id="c0B-bM-dle"/>
                     </connections>
                 </viewController>
@@ -477,11 +484,108 @@
             </objects>
             <point key="canvasLocation" x="2807" y="-316"/>
         </scene>
+        <!--Avatar PickerVC-->
+        <scene sceneID="SLv-rG-Wjy">
+            <objects>
+                <viewController id="YrT-m2-6Pj" customClass="AvatarPickerVC" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NDy-mb-JAo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcE-Is-ctc">
+                                <rect key="frame" x="8" y="67" width="52" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="ux2-Ui-f6M"/>
+                                    <constraint firstAttribute="width" constant="52" id="wce-KD-Eod"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="smackBack">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="medium"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="YrT-m2-6Pj" eventType="touchUpInside" id="km3-Zo-dE0"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fao-Ml-S1D">
+                                <rect key="frame" x="116.66666666666669" y="73" width="160" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3k7-aO-aqg"/>
+                                    <constraint firstAttribute="width" constant="160" id="6bm-3o-nfl"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Dark"/>
+                                    <segment title="Light"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemCyanColor"/>
+                                <connections>
+                                    <action selector="segmentControlChanged:" destination="YrT-m2-6Pj" eventType="valueChanged" id="XmM-c4-BjJ"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r99-g9-bDh">
+                                <rect key="frame" x="0.0" y="144" width="393" height="674"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GUc-7g-654">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AvatarCell" id="YXd-Ag-vcs" customClass="AvatarCell" customModule="ChatApp" customModuleProvider="target">
+                                        <rect key="frame" x="96.666666666666671" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MjJ-Oi-CD8" customClass="AvatarCell" customModule="ChatApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dul-3e-LTZ">
+                                                    <rect key="frame" x="10" y="10" width="180" height="180"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dul-3e-LTZ" firstAttribute="top" secondItem="MjJ-Oi-CD8" secondAttribute="top" constant="10" id="JJm-Yg-D68"/>
+                                                <constraint firstAttribute="bottom" secondItem="dul-3e-LTZ" secondAttribute="bottom" constant="10" id="TsT-ay-Em1"/>
+                                                <constraint firstAttribute="trailing" secondItem="dul-3e-LTZ" secondAttribute="trailing" constant="10" id="dAc-B3-JBk"/>
+                                                <constraint firstItem="dul-3e-LTZ" firstAttribute="leading" secondItem="MjJ-Oi-CD8" secondAttribute="leading" constant="10" id="ijC-FS-EN8"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="200" height="200"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="dul-3e-LTZ" id="bgD-0a-KIN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cl4-VF-X9W"/>
+                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <constraints>
+                            <constraint firstItem="cl4-VF-X9W" firstAttribute="bottom" secondItem="r99-g9-bDh" secondAttribute="bottom" id="DIf-qa-1TZ"/>
+                            <constraint firstItem="GcE-Is-ctc" firstAttribute="leading" secondItem="cl4-VF-X9W" secondAttribute="leading" constant="8" id="GBf-lP-yQW"/>
+                            <constraint firstItem="cl4-VF-X9W" firstAttribute="trailing" secondItem="r99-g9-bDh" secondAttribute="trailing" id="MhZ-7l-mJQ"/>
+                            <constraint firstItem="r99-g9-bDh" firstAttribute="leading" secondItem="cl4-VF-X9W" secondAttribute="leading" id="U6f-6r-JzA"/>
+                            <constraint firstItem="fao-Ml-S1D" firstAttribute="centerX" secondItem="NDy-mb-JAo" secondAttribute="centerX" id="Xrg-9K-xsj"/>
+                            <constraint firstItem="GcE-Is-ctc" firstAttribute="top" secondItem="NDy-mb-JAo" secondAttribute="topMargin" constant="8" id="cU9-nf-0Xm"/>
+                            <constraint firstItem="r99-g9-bDh" firstAttribute="top" secondItem="GcE-Is-ctc" secondAttribute="bottom" constant="25" id="e2O-yl-ZYt"/>
+                            <constraint firstItem="fao-Ml-S1D" firstAttribute="top" secondItem="cl4-VF-X9W" secondAttribute="top" constant="14" id="mtj-tU-BkC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Qa-9n-LT6"/>
+                    <connections>
+                        <outlet property="collectionView" destination="r99-g9-bDh" id="bu3-uP-s4q"/>
+                        <outlet property="segmentControl" destination="fao-Ml-S1D" id="bSf-ZM-Bnu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72d-Ee-CLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3675.5725190839694" y="-316.19718309859155"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addChannelButton" width="22" height="22"/>
         <image name="closeButton" width="28" height="28"/>
         <image name="menuProfileIcon" width="99" height="99"/>
+        <image name="smackBack" width="28" height="28"/>
         <image name="smackBurger" width="40" height="40"/>
         <image name="smackLogo" width="48" height="40"/>
         <systemColor name="systemBackgroundColor">
@@ -495,6 +599,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

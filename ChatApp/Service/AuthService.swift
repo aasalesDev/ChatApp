@@ -48,18 +48,25 @@ class AuthService {
         let header = [
             "Content-Type": "application/json; charset=utf-8"
         ]
-        let body: [String : Any] = [
+        let body = [
             "email": lowerCaseEmail,
             "password": password
         ]
         
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
-            if response.result.error == nil {
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
+        AF.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default).responseString { (response) in
+            if response.error == nil {
+                            completion(false)
+                        } else {
+                            completion(true)
+                        }
+                    }
+//        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+//            if response.result.error == nil {
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
         
     }
     
